@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import 'module-alias/register';
 import 'dotenv/config';
 import 'reflect-metadata';
