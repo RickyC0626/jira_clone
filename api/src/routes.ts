@@ -4,8 +4,9 @@ import * as issues from 'controllers/issues';
 import * as projects from 'controllers/projects';
 import * as test from 'controllers/test';
 import * as users from 'controllers/users';
+import { Express } from 'express';
 
-export const attachPublicRoutes = (app: any): void => {
+export const attachPublicRoutes = (app: Express): void => {
   if (process.env.NODE_ENV === 'test') {
     app.delete('/test/reset-database', test.resetDatabase);
     app.post('/test/create-account', test.createAccount);
@@ -14,7 +15,7 @@ export const attachPublicRoutes = (app: any): void => {
   app.post('/authentication/guest', authentication.createGuestAccount);
 };
 
-export const attachPrivateRoutes = (app: any): void => {
+export const attachPrivateRoutes = (app: Express): void => {
   app.post('/comments', comments.create);
   app.put('/comments/:commentId', comments.update);
   app.delete('/comments/:commentId', comments.remove);
