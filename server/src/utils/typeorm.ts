@@ -14,10 +14,12 @@ export const findEntityOrThrow = async <T extends EntityConstructor>(
   id: number | string,
   options?: FindOneOptions,
 ): Promise<InstanceType<T>> => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const instance = await Constructor.findOne(id, options);
   if (!instance) {
     throw new EntityNotFoundError(Constructor.name);
   }
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return instance;
 };
 

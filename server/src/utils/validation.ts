@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/ban-types */
 type Value = any;
 type ErrorMessage = false | string;
 type FieldValues = { [key: string]: Value };
@@ -13,7 +12,7 @@ const isNilOrEmptyString = (value: Value): boolean =>
 
 const is = {
   match:
-    (testFn: Function, message = '') =>
+    (testFn: (...params: any[]) => any, message = '') =>
     (value: Value, fieldValues: FieldValues): ErrorMessage =>
       !testFn(value, fieldValues) && message,
 

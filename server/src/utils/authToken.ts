@@ -9,12 +9,12 @@ export const signToken = (payload: object, options?: SignOptions): string =>
     ...options,
   });
 
-export const verifyToken = (token: string): { [key: string]: any } => {
+export const verifyToken = (token: string): { [key: string]: string } => {
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET);
 
     if (isPlainObject(payload)) {
-      return payload as { [key: string]: any };
+      return payload as { [key: string]: string };
     }
     throw new Error();
   } catch (error) {
