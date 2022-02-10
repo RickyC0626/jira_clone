@@ -5,7 +5,7 @@
       "changeProcessCWD": true
     },
     {
-      "directory": "./api",
+      "directory": "./server",
       "changeProcessCWD": true
     }
   ]
